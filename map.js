@@ -6,11 +6,9 @@ $(function() {
     var map = new mapboxgl.Map({
         container: 'map', // container id
         style: 'mapbox://styles/mapbox/streets-v9', //stylesheet location
-        center:[
-            -123.120738,
-            49.282729
-        ], // starting position
-        zoom: 3.5 // starting zoom
+        center:[-123.120738, 49.282729], // starting position
+        zoom: 3.5, // starting zoom
+        maxZoom: 10
     });
 
     // collection of marker objects
@@ -28,6 +26,34 @@ $(function() {
                     "coordinates": [
                         -123.120738,
                         49.282729
+                    ]
+                }
+            },
+            {
+                "type": "Meme",
+                "properties": {
+                    "city": "Edmonton",
+                    "iconSize": [60, 60]
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -113.4909,
+                        53.5444
+                    ]
+                }
+            },
+            {
+                "type": "Meme",
+                "properties": {
+                    "city": "Calgary",
+                    "iconSize": [60, 60]
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        -114.0708,
+                        51.0486
                     ]
                 }
             },
@@ -61,10 +87,9 @@ $(function() {
             .addTo(map);
     });
 
-    // Add geolocate button to the map.
-    map.addControl(new mapboxgl.GeolocateControl());
-
     // Add fullscreen button to the map.
     map.addControl(new mapboxgl.FullscreenControl());
+    // Add geolocate button to the map.
+    map.addControl(new mapboxgl.GeolocateControl());
 
 });
