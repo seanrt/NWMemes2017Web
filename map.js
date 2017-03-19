@@ -15,12 +15,37 @@ $(function() {
         // add each marker (in geojson) to map
         data.data.forEach(function(marker) {
             // create a DOM element for the marker
-            var iconSize = 60;
             var el = document.createElement('div');
             el.className = 'marker';
+
+            var score = 0;
+            var iconSize = 60;
             el.style.backgroundImage = 'url(public/img/marker_60.png)';
-            el.style.width = iconSize + 'px';
-            el.style.height = iconSize + 'px';
+            $.get( `${domain}/api/tweets/${marker.cityName}`, function(result) {
+                var resultData = result.data;
+                for (var i=0; i<resultData.length; i++) {
+                    score += parseInt(resultData[i].likesCount);
+                    score += parseInt(resultData[i].retweetCount);
+                    score += parseInt(resultData[i].repliesCount);
+                }
+                console.log(score);
+                if (score > 100) {
+                  iconSize = 80;
+                  el.style.backgroundImage = 'url(public/img/marker_80.png)';
+                } else if (score < 20) {
+                  iconSize = 32;
+                  el.style.backgroundImage = 'url(public/img/marker_32.png)';
+                }
+
+                el.style.width = iconSize + 'px';
+                el.style.height = iconSize + 'px';
+                
+                // add marker to map
+                console.log(iconSize);
+                new mapboxgl.Marker(el, {offset: [-iconSize / 2, -iconSize / 2]})
+                    .setLngLat(marker.location)
+                    .addTo(map);
+            });
 
             el.addEventListener('click', function() {
                 $('#accordion').accordion({
@@ -37,14 +62,13 @@ $(function() {
                     var replies = accordion.getElementsByClassName('replies');
                     var resultData = result.data;
                     for (var i=0; i<resultData.length; i++) {
-                        console.log( resultData[i].imageUrl)
+                        console.log(resultData[i].imageUrl);
                         images[i].src = resultData[i].imageUrl;
                         tweets[i].innerHTML = resultData[i].tweet;
                         likes[i].innerHTML = `Likes: ${resultData[i].likesCount}`;
                         retweets[i].innerHTML = `Retweets: ${resultData[i].retweetCount}`;
                         replies[i].innerHTML = `Replies: ${resultData[i].repliesCount}`;
                     }
-
 
                 });
                 var popup = document.getElementById('popup');
@@ -54,11 +78,6 @@ $(function() {
                     exit.style.display = 'block';
                 }
             });
-
-            // add marker to map
-            new mapboxgl.Marker(el, {offset: [-iconSize / 2, -iconSize / 2]})
-                .setLngLat(marker.location)
-                .addTo(map);
         });
     });
 
