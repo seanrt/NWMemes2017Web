@@ -41,11 +41,14 @@ $(function() {
         el.style.height = marker.properties.iconSize[1] + 'px';
 
         el.addEventListener('click', function() {
-             var x = document.getElementById('accordion');
-            if (x.style.display === 'none') {
-                x.style.display = 'block';
+            var accordion = document.getElementById('accordion');
+            var exit = document.getElementById('exit');
+            if (accordion.style.display === 'none') {
+                accordion.style.display = 'block';
+                exit.style.display = 'block';
             } else {
-                x.style.display = 'none';
+                accordion.style.display = 'none';
+                exit.style.display = 'none';
             }
         });
 

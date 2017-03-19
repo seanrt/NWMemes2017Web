@@ -4,7 +4,6 @@
     bottom:0; 
     width:100%; 
     padding:0;
-    z-index: -1;
 }
 
 #splashscreen {
@@ -19,11 +18,14 @@
 #accordion {
     position: absolute;
     max-width: 500px;
-    z-index: 1;
+    padding: 10px;
 }
 
-#accordion div p {
-    z-index: 1;
+#exit {
+    position: absolute;
+    left: 500px;
+    margin: 25px;
+    font-size: 20px;
 }
 
 body {
