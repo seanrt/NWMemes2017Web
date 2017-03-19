@@ -89,7 +89,7 @@ $(function() {
     }));
 
     // Add fullscreen button to the map.
-    // map.addControl(new mapboxgl.FullscreenControl());
+    map.addControl(new mapboxgl.FullscreenControl());
     // Add geolocate button to the map.
-    map.addControl(new mapboxgl.GeolocateControl());
+    // map.addControl(new mapboxgl.GeolocateControl());
 });
