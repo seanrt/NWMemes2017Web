@@ -1,4 +1,5 @@
 $(function() {
+    // var domain = "http://localhost:3030"
     var domain = 'https://meme-api-krhvuazvmq.now.sh';
     mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keXR1bmciLCJhIjoiY2owZnJ6eXY4MDJlbTJxc2F6OW81cnpzcSJ9.CwCldAdWdHqo90qFuK_WFA';
 
