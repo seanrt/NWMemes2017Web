@@ -1,5 +1,6 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keXR1bmciLCJhIjoiY2owZnJ6eXY4MDJlbTJxc2F6OW81cnpzcSJ9.CwCldAdWdHqo90qFuK_WFA';
 
+// initialize map object
 var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mapbox/streets-v9', //stylesheet location
@@ -7,6 +8,7 @@ var map = new mapboxgl.Map({
     zoom: 3.5 // starting zoom
 });
 
+// collection of marker objects
 var geojson = {
     "type": "MemeCollection",
     "memes": [
@@ -14,7 +16,7 @@ var geojson = {
             "type": "Meme",
             "properties": {
                 "message": "Foo",
-                "iconSize": [60, 60]
+                "iconSize": [512, 512]
             },
             "geometry": {
                 "type": "Point",
@@ -27,12 +29,12 @@ var geojson = {
     ]
 };
 
-// add markers to map
+// add each marker (in geojson) to map
 geojson.memes.forEach(function(marker) {
     // create a DOM element for the marker
     var el = document.createElement('div');
     el.className = 'marker';
-    el.style.backgroundImage = 'url(https://placehold.it/' + marker.properties.iconSize.join('/') + '/)';
+    el.style.backgroundImage = 'url(public/img/marker_' + marker.properties.iconSize[0] + '.png)';
     el.style.width = marker.properties.iconSize[0] + 'px';
     el.style.height = marker.properties.iconSize[1] + 'px';
 
@@ -45,4 +47,7 @@ geojson.memes.forEach(function(marker) {
         .setLngLat(marker.geometry.coordinates)
         .addTo(map);
 });
+
+// Add geolocate button to the map.
+map.addControl(new mapboxgl.GeolocateControl());
 
