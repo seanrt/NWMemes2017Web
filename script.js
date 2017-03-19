@@ -1,6 +1,5 @@
-document.body.className += 'fade-out';
 $(function() {
-    $('body').removeClass('fade-out');
+    $('#map-container').removeClass('fade-out');
     $('#accordion').accordion();
     var accordion = document.getElementById('accordion');
     accordion.style.display = 'none';
