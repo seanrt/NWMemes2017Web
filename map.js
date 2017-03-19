@@ -1,5 +1,6 @@
 $(function() {
-    var domain = 'https://meme-api-kvytfrztih.now.sh';
+    // var domain = "http://localhost:3030"
+    var domain = 'https://meme-api-fxlvhmovfy.now.sh';
     mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keXR1bmciLCJhIjoiY2owZnJ6eXY4MDJlbTJxc2F6OW81cnpzcSJ9.CwCldAdWdHqo90qFuK_WFA';
 
     // initialize map object
@@ -80,6 +81,19 @@ $(function() {
             });
         });
     });
+
+    setInterval(
+    function() {
+        $.get(`${domain}/api/poll`, function(result) {
+            console.log(result);
+            if(result.isReady) {
+                map.flyTo({
+                    center: result.location
+                });
+            }
+        });
+    }
+    , 2000);
 
     // Add fullscreen button to the map.
     map.addControl(new mapboxgl.FullscreenControl());

@@ -23,12 +23,4 @@ $(function() {
             $('#chat').css('display', 'none');
         }
     });
-
-    // setInterval(
-    //     $.get( `https://andyytung.github.io`, function(result) {
-    //         console.log("hi");
-            
-    //     }), 1000);
-
-
 });
