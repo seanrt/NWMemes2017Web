@@ -62,6 +62,19 @@ $(function() {
         });
     });
 
+    setInterval(
+    function() {
+        $.get(`${domain}/api/poll`, function(result) {
+            console.log(result);
+            if(result.isReady) {
+                map.flyTo({
+                    center: result.location
+                });
+            }
+        });
+    }
+    , 2000);
+
     // Add fullscreen button to the map.
     map.addControl(new mapboxgl.FullscreenControl());
     // Add geolocate button to the map.
