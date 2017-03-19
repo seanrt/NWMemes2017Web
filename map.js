@@ -1,5 +1,6 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keXR1bmciLCJhIjoiY2owZnJ6eXY4MDJlbTJxc2F6OW81cnpzcSJ9.CwCldAdWdHqo90qFuK_WFA';
 
+// initialize map object
 var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mapbox/streets-v9', //stylesheet location
@@ -7,8 +8,7 @@ var map = new mapboxgl.Map({
     zoom: 3.5 // starting zoom
 });
 
-
-mapboxgl.accessToken = 'pk.eyJ1IjoiamFtZXN4aWFvMjMiLCJhIjoiY2owZndpeXd4MDI5bTJ3cHV3OXRiM2VoMSJ9.zBuTuTb6SUouTLMO24DStg';
+// collection of marker objects
 var geojson = {
     "type": "FeatureCollection",
     "features": [
@@ -16,7 +16,7 @@ var geojson = {
             "type": "Feature",
             "properties": {
                 "message": "Foo",
-                "iconSize": [60, 60]
+                "iconSize": [512, 512]
             },
             "geometry": {
                 "type": "Point",
@@ -29,12 +29,12 @@ var geojson = {
     ]
 };
 
-// add markers to map
+// add each marker (in geojson) to map
 geojson.features.forEach(function(marker) {
     // create a DOM element for the marker
     var el = document.createElement('div');
     el.className = 'marker';
-    el.style.backgroundImage = 'url(public/img/small_Marker.png)';// + marker.properties.iconSize.join('/') + '/)';
+    el.style.backgroundImage = 'url(public/img/marker_' + marker.properties.iconSize[0] + '.png)';
     el.style.width = marker.properties.iconSize[0] + 'px';
     el.style.height = marker.properties.iconSize[1] + 'px';
 
@@ -47,4 +47,7 @@ geojson.features.forEach(function(marker) {
         .setLngLat(marker.geometry.coordinates)
         .addTo(map);
 });
+
+// Add geolocate button to the map.
+map.addControl(new mapboxgl.GeolocateControl());
 
