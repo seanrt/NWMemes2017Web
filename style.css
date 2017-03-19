@@ -1,4 +1,11 @@
-#map { position:absolute; top:0; bottom:0; width:100%; padding:0;}
+#map { 
+    position:absolute; 
+    top:0; 
+    bottom:0; 
+    width:100%; 
+    padding:0;
+    z-index: -1;
+}
 
 #splashscreen {
     position:absolute;
@@ -10,7 +17,13 @@
 }
 
 #accordion {
-    display: none;
+    position: absolute;
+    max-width: 500px;
+    z-index: 1;
+}
+
+#accordion div p {
+    z-index: 1;
 }
 
 body {

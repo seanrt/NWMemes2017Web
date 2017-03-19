@@ -1,5 +1,5 @@
-document.body.className += ' fade-out';
+document.body.className += 'fade-out';
 $(function() {
     $('body').removeClass('fade-out');
-    $( "#accordion" ).accordion();
+    $('#accordion').accordion();
 });
