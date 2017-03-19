@@ -31,7 +31,7 @@ $(function() {
                 }
                 console.log(score);
                 if (score > 100) {
-                  iconSize = 80;
+                  iconSize = 60;
                   el.style.backgroundImage = 'url(public/img/marker_80.png)';
                 } else if (score < 20) {
                   iconSize = 32;
