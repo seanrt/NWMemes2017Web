@@ -47,6 +47,15 @@
     background: white;
 }
 
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content div p {
+    text-align: right;
+}
+
 #map-container {
     margin:0;
     padding:0;
