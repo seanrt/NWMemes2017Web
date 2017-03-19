@@ -1,4 +1,10 @@
-#map { position:absolute; top:0; bottom:0; width:100%; padding:0;}
+#map { 
+    position:absolute; 
+    top:0; 
+    bottom:0; 
+    width:100%; 
+    padding:0;
+}
 
 #splashscreen {
     position:absolute;
@@ -10,7 +16,16 @@
 }
 
 #accordion {
-    display: none;
+    position: absolute;
+    max-width: 500px;
+    padding: 10px;
+}
+
+#exit {
+    position: absolute;
+    left: 500px;
+    margin: 25px;
+    font-size: 20px;
 }
 
 body {
