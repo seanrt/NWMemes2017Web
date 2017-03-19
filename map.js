@@ -49,6 +49,8 @@ $(function() {
             });
 
             el.addEventListener('click', function() {
+                var snd = new Audio("public/sound/frog-ribbet2.wav"); // buffers automatically when created
+                snd.play();
                 $('#accordion').accordion({
                     active: 0
                 });
