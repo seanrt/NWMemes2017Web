@@ -1,6 +1,8 @@
 $(function() {
     $('#map-container').removeClass('fade-out');
-    $('#accordion').accordion();
+    $('#accordion').accordion({
+        collapsible: true
+    });
     var popup = document.getElementById('popup');
     popup.style.display = 'none';
 
