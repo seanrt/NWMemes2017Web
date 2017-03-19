@@ -13,7 +13,6 @@ $(function() {
 
     $.get( "https://meme-api-lwovjepsxc.now.sh/api/cities", function(data) {
         // add each marker (in geojson) to map
-        console.log(data);
         data.data.forEach(function(marker) {
             // create a DOM element for the marker
             var iconSize = 60;
@@ -25,6 +24,7 @@ $(function() {
 
             el.addEventListener('click', function() {
                 var popup = document.getElementById('popup');
+                console.log(marker);
                 var exit = document.getElementById('exit');
                 if (popup.style.display === 'none') {
                     popup.style.display = 'block';
