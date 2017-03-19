@@ -40,7 +40,7 @@ $(function() {
 
                 el.style.width = iconSize + 'px';
                 el.style.height = iconSize + 'px';
-                
+
                 // add marker to map
                 console.log(iconSize);
                 new mapboxgl.Marker(el, {offset: [-iconSize / 2, -iconSize / 2]})
@@ -81,7 +81,7 @@ $(function() {
             });
         });
     });
-
+/*
     setInterval(
     function() {
         $.get(`${domain}/api/poll`, function(result) {
@@ -94,7 +94,7 @@ $(function() {
         });
     }
     , 2000);
-
+*/
     // Add fullscreen button to the map.
     map.addControl(new mapboxgl.FullscreenControl());
     // Add geolocate button to the map.
