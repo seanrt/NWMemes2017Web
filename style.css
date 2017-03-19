@@ -88,6 +88,28 @@
     transition-timing-function: cubic-bezier(0.6,0.08,1,-0.69);
 }
 
+#toggle-chat {
+    position: absolute;
+    right: 60px;
+    top: 5px;
+    font-size: 30px;
+    color: black;
+}
+
+#chat {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    height: 450px;
+    width: 380px;
+    background: white;
+    display: none;
+}
+
+.active {
+    transform: scale(1.3);
+}
+
 body {
     margin:0;
     padding:0;
