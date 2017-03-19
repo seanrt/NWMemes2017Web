@@ -1,5 +1,5 @@
 $(function() {
-        
+
     mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keXR1bmciLCJhIjoiY2owZnJ6eXY4MDJlbTJxc2F6OW81cnpzcSJ9.CwCldAdWdHqo90qFuK_WFA';
 
     // initialize map object
@@ -37,12 +37,12 @@ $(function() {
                         console.log( resultData[i].imageUrl)
                         images[i].src = resultData[i].imageUrl;
                         tweets[i].innerHTML = resultData[i].tweet;
-                        likes[i].innerHTML = `Number of likes: ${resultData[i].likesCount}`;
-                        retweets[i].innerHTML = `Number of retweets: ${resultData[i].retweetCount}`;
-                        replies[i].innerHTML = `Number of replies: ${resultData[i].repliesCount}`;
+                        likes[i].innerHTML = `Likes: ${resultData[i].likesCount}`;
+                        retweets[i].innerHTML = `Retweets: ${resultData[i].retweetCount}`;
+                        replies[i].innerHTML = `Replies: ${resultData[i].repliesCount}`;
                     }
-                
-                    
+
+
                 });
 
                 var popup = document.getElementById('popup');
