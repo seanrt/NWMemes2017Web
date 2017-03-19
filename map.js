@@ -24,7 +24,7 @@ $(function() {
 
             el.addEventListener('click', function() {
                 $('#accordion').accordion({
-                    active: false
+                    active: 0
                 });
                 var title = document.getElementById('title');
                 title.innerHTML = marker.cityName;
@@ -46,10 +46,6 @@ $(function() {
                     }
 
 
-                });
-
-                $('#accordion').accordion({
-                    active: true
                 });
                 var popup = document.getElementById('popup');
                 var exit = document.getElementById('exit');
