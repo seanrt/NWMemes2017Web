@@ -23,6 +23,9 @@ $(function() {
             el.style.height = iconSize + 'px';
 
             el.addEventListener('click', function() {
+                $('#accordion').accordion({
+                    active: false
+                });
                 var title = document.getElementById('title');
                 title.innerHTML = marker.cityName;
                 $.get( `https://meme-api-xtgxoarjuy.now.sh/api/tweets/${marker.cityName}`, function(result) {
@@ -45,6 +48,9 @@ $(function() {
 
                 });
 
+                $('#accordion').accordion({
+                    active: true
+                });
                 var popup = document.getElementById('popup');
                 var exit = document.getElementById('exit');
                 if (popup.style.display === 'none') {
