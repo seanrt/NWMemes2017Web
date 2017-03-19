@@ -1,0 +1,11 @@
+body {
+    padding: 0.5em;
+}
+
+.marker {
+    display: block;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+}
