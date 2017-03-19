@@ -1,13 +1,13 @@
 $(function() {
-        
+
     mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keXR1bmciLCJhIjoiY2owZnJ6eXY4MDJlbTJxc2F6OW81cnpzcSJ9.CwCldAdWdHqo90qFuK_WFA';
 
     // initialize map object
     var map = new mapboxgl.Map({
         container: 'map', // container id
         style: 'mapbox://styles/mapbox/streets-v9', //stylesheet location
-        center:[-123.120738, 49.282729], // starting position
-        zoom: 3.5, // starting zoom
+        center:[-107.2787, 39.9649], // starting position
+        zoom: 3, // starting zoom
         maxZoom: 10
     });
 
@@ -40,12 +40,12 @@ $(function() {
                         console.log( resultData[i].imageUrl)
                         images[i].src = resultData[i].imageUrl;
                         tweets[i].innerHTML = resultData[i].tweet;
-                        likes[i].innerHTML = `Number of likes: ${resultData[i].likesCount}`;
-                        retweets[i].innerHTML = `Number of retweets: ${resultData[i].retweetCount}`;
-                        replies[i].innerHTML = `Number of replies: ${resultData[i].repliesCount}`;
+                        likes[i].innerHTML = `Likes: ${resultData[i].likesCount}`;
+                        retweets[i].innerHTML = `Retweets: ${resultData[i].retweetCount}`;
+                        replies[i].innerHTML = `Replies: ${resultData[i].repliesCount}`;
                     }
-                
-                    
+
+
                 });
 
                 $('#accordion').accordion({
