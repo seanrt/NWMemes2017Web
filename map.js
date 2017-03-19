@@ -10,10 +10,10 @@ var map = new mapboxgl.Map({
 
 // collection of marker objects
 var geojson = {
-    "type": "FeatureCollection",
-    "features": [
+    "type": "MemeCollection",
+    "memes": [
         {
-            "type": "Feature",
+            "type": "Meme",
             "properties": {
                 "message": "Foo",
                 "iconSize": [512, 512]
@@ -30,7 +30,7 @@ var geojson = {
 };
 
 // add each marker (in geojson) to map
-geojson.features.forEach(function(marker) {
+geojson.memes.forEach(function(marker) {
     // create a DOM element for the marker
     var el = document.createElement('div');
     el.className = 'marker';
