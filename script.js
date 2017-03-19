@@ -24,11 +24,11 @@ $(function() {
         }
     });
 
-    setInterval(
-        $.get( `https://andyytung.github.io`, function(result) {
-            console.log("hi");
+    // setInterval(
+    //     $.get( `https://andyytung.github.io`, function(result) {
+    //         console.log("hi");
             
-        }), 1000);
+    //     }), 1000);
 
 
 });
