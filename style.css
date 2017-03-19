@@ -1,3 +1,5 @@
+#map { position:absolute; top:0; bottom:0; width:100%; padding:0;}
+
 #splashscreen {
     position:absolute;
     top:0;
@@ -7,6 +9,14 @@
     background-color:white;
 }
 
-body { margin:0; padding:0; }
+body {
+    margin:0;
+    padding:0;
+    opacity: 1;
+    transition: 3s opacity;
+}
 
-#map { position:absolute; top:0; bottom:0; width:100%; padding:0;}
+body.fade-out {
+    opacity: 0;
+    transition: none;
+}
