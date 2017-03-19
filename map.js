@@ -6,8 +6,8 @@ $(function() {
     var map = new mapboxgl.Map({
         container: 'map', // container id
         style: 'mapbox://styles/mapbox/streets-v9', //stylesheet location
-        center:[-123.120738, 49.282729], // starting position
-        zoom: 3.5, // starting zoom
+        center:[-107.2787, 39.9649], // starting position
+        zoom: 3, // starting zoom
         maxZoom: 10
     });
 
