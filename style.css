@@ -1,50 +1,7 @@
-#map { 
-    position:absolute; 
-    top:0; 
-    bottom:0; 
-    width:100%; 
-    padding:0;
-    z-index: 0;
-}
+#map { position:absolute; top:0; bottom:0; width:100%; padding:0;}
 
-
-#splashscreen {
-    position:absolute;
-    top:0;
-    left:0;
-    bottom:0;
-    width:100%;
-    background-color:white;
-}
-
-#popup {
-    position: absolute;
-    top:0;
-    left:0;
-}
-
-#accordion {
-    position: absolute;
-    width: 500px;
-    padding: 10px;
-    top: 55px;
-}
-
-#exit {
-    position: absolute;
-    left: 500px;
-    margin: 25px;
-    font-size: 20px;
-}
-
-.title {
-    position: absolute;
-    border: 1px solid #333;
-    border-radius: 4px;
-    padding: 7px;
-    left: 10px;
-    width: 485px;
-    background: white;
+.splash-screen {
+  text-align: center;
 }
 
 .content {
@@ -60,11 +17,6 @@
     padding:0;
     opacity: 1;
     transition: 3s opacity;
-}
-
-body {
-    margin:0;
-    padding:0;
 }
 
 #map-container.fade-out {
