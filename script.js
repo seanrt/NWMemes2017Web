@@ -1,19 +1,18 @@
-document.body.className += 'fade-out';
 $(function() {
-    $('body').removeClass('fade-out');
+    $('#map-container').removeClass('fade-out');
     $('#accordion').accordion();
-    var accordion = document.getElementById('accordion');
-    accordion.style.display = 'none';
+    var popup = document.getElementById('popup');
+    popup.style.display = 'none';
 
     var exit = document.getElementById('exit');
     exit.style.display = 'none';
     exit.addEventListener('click', function() {
-        var accordion = document.getElementById('accordion');
-        if (accordion.style.display === 'none') {
-            accordion.style.display = 'block';
+        var popup = document.getElementById('popup');
+        if (popup.style.display === 'none') {
+            popup.style.display = 'block';
             exit.style.display = 'block';
         } else {
-            accordion.style.display = 'none';
+            popup.style.display = 'none';
             exit.style.display = 'none';
         }
     });
