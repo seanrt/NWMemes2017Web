@@ -7,13 +7,11 @@ var map = new mapboxgl.Map({
     zoom: 3.5 // starting zoom
 });
 
-
-mapboxgl.accessToken = 'pk.eyJ1IjoiamFtZXN4aWFvMjMiLCJhIjoiY2owZndpeXd4MDI5bTJ3cHV3OXRiM2VoMSJ9.zBuTuTb6SUouTLMO24DStg';
 var geojson = {
-    "type": "FeatureCollection",
-    "features": [
+    "type": "MemeCollection",
+    "memes": [
         {
-            "type": "Feature",
+            "type": "Meme",
             "properties": {
                 "message": "Foo",
                 "iconSize": [60, 60]
@@ -30,11 +28,11 @@ var geojson = {
 };
 
 // add markers to map
-geojson.features.forEach(function(marker) {
+geojson.memes.forEach(function(marker) {
     // create a DOM element for the marker
     var el = document.createElement('div');
     el.className = 'marker';
-    el.style.backgroundImage = 'url(public/img/small_Marker.png)';// + marker.properties.iconSize.join('/') + '/)';
+    el.style.backgroundImage = 'url(https://placehold.it/' + marker.properties.iconSize.join('/') + '/)';
     el.style.width = marker.properties.iconSize[0] + 'px';
     el.style.height = marker.properties.iconSize[1] + 'px';
 
