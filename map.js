@@ -11,77 +11,32 @@ $(function() {
         maxZoom: 10
     });
 
-    // collection of marker objects
-    var geojson = {
-        "type": "MemeCollection",
-        "memes": [
-            {
-                "type": "Meme",
-                "properties": {
-                    "city": "Vancouver",
-                    "iconSize": [60, 60]
-                },
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                        -123.120738,
-                        49.282729
-                    ]
-                }
-            },
-            {
-                "type": "Meme",
-                "properties": {
-                    "city": "Edmonton",
-                    "iconSize": [60, 60]
-                },
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                        -113.4909,
-                        53.5444
-                    ]
-                }
-            },
-            {
-                "type": "Meme",
-                "properties": {
-                    "city": "Calgary",
-                    "iconSize": [60, 60]
-                },
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                        -114.0708,
-                        51.0486
-                    ]
-                }
-            },
-        ]
-    };
+    $.get( "https://meme-api-lwovjepsxc.now.sh/api/cities", function(data) {
+        // add each marker (in geojson) to map
+        data.data.forEach(function(marker) {
+            // create a DOM element for the marker
+            var iconSize = 60;
+            var el = document.createElement('div');
+            el.className = 'marker';
+            el.style.backgroundImage = 'url(public/img/marker_60.png)';
+            el.style.width = iconSize + 'px';
+            el.style.height = iconSize + 'px';
 
-    // add each marker (in geojson) to map
-    geojson.memes.forEach(function(marker) {
-        // create a DOM element for the marker
-        var el = document.createElement('div');
-        el.className = 'marker';
-        el.style.backgroundImage = 'url(public/img/marker_' + marker.properties.iconSize[0] + '.png)';
-        el.style.width = marker.properties.iconSize[0] + 'px';
-        el.style.height = marker.properties.iconSize[1] + 'px';
+            el.addEventListener('click', function() {
+                var popup = document.getElementById('popup');
+                console.log(marker);
+                var exit = document.getElementById('exit');
+                if (popup.style.display === 'none') {
+                    popup.style.display = 'block';
+                    exit.style.display = 'block';
+                }
+            });
 
-        el.addEventListener('click', function() {
-            var popup = document.getElementById('popup');
-            var exit = document.getElementById('exit');
-            if (popup.style.display === 'none') {
-                popup.style.display = 'block';
-                exit.style.display = 'block';
-            }
+            // add marker to map
+            new mapboxgl.Marker(el, {offset: [-iconSize / 2, -iconSize / 2]})
+                .setLngLat(marker.location)
+                .addTo(map);
         });
-
-        // add marker to map
-        new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]})
-            .setLngLat(marker.geometry.coordinates)
-            .addTo(map);
     });
 
     // Add fullscreen button to the map.
