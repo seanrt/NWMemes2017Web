@@ -23,8 +23,29 @@ $(function() {
             el.style.height = iconSize + 'px';
 
             el.addEventListener('click', function() {
+                var title = document.getElementById('title');
+                title.innerHTML = marker.cityName;
+                $.get( `https://meme-api-lwovjepsxc.now.sh/api/tweets/${marker.cityName}`, function(result) {
+                    var accordion = document.getElementById('accordion');
+                    var images = accordion.getElementsByClassName('meme-image');
+                    var tweets = accordion.getElementsByClassName('tweet');
+                    var retweets = accordion.getElementsByClassName('retweets');
+                    var likes = accordion.getElementsByClassName('likes');
+                    var replies = accordion.getElementsByClassName('replies');
+                    var resultData = result.data;
+                    console.log(resultData);
+                    for (var i=0; i<resultData.length; i++) {
+                        // images[i].src = "https://" + resultData[i].imageUrl;
+                        tweets[i].innerHTML = resultData[i].tweet;
+                        likes[i].innerHTML = `Number of likes: ${resultData[i].likesCount}`;
+                        retweets[i].innerHTML = `Number of retweets: ${resultData[i].retweetCount}`;
+                        replies[i].innerHTML = `Number of replies: ${resultData[i].repliesCount}`;
+                    }
+                
+                    
+                });
+
                 var popup = document.getElementById('popup');
-                console.log(marker);
                 var exit = document.getElementById('exit');
                 if (popup.style.display === 'none') {
                     popup.style.display = 'block';
