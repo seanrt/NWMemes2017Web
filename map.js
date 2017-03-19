@@ -75,9 +75,6 @@ $(function() {
             if (popup.style.display === 'none') {
                 popup.style.display = 'block';
                 exit.style.display = 'block';
-            } else {
-                popup.style.display = 'none';
-                exit.style.display = 'none';
             }
         });
 
