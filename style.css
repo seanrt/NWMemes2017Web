@@ -49,11 +49,10 @@
 
 .content {
     display: flex;
-    justify-content: space-between;
 }
 
 .content div p {
-    text-align: right;
+    padding-left: 10px;
 }
 
 #map-container {
