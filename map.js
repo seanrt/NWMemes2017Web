@@ -16,13 +16,13 @@ var geojson = {
             "type": "Meme",
             "properties": {
                 "message": "Foo",
-                "iconSize": [512, 512]
+                "iconSize": [60, 60]
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -98.420679,
-                    55.772537
+                    -123.120738,
+                    49.282729
                 ]
             }
         },
@@ -48,6 +48,8 @@ geojson.memes.forEach(function(marker) {
         .addTo(map);
 });
 
+// Add fullscreen button to the map.
+map.addControl(new mapboxgl.FullscreenControl());
 // Add geolocate button to the map.
 map.addControl(new mapboxgl.GeolocateControl());
 
