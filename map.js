@@ -1,5 +1,5 @@
 $(function() {
-
+    var domain = 'https://meme-api-kvytfrztih.now.sh';
     mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keXR1bmciLCJhIjoiY2owZnJ6eXY4MDJlbTJxc2F6OW81cnpzcSJ9.CwCldAdWdHqo90qFuK_WFA';
 
     // initialize map object
@@ -11,7 +11,7 @@ $(function() {
         maxZoom: 10
     });
 
-    $.get( "https://meme-api-xtgxoarjuy.now.sh/api/cities", function(data) {
+    $.get(`${domain}/api/cities`, function(data) {
         // add each marker (in geojson) to map
         data.data.forEach(function(marker) {
             // create a DOM element for the marker
@@ -28,7 +28,7 @@ $(function() {
                 });
                 var title = document.getElementById('title');
                 title.innerHTML = marker.cityName;
-                $.get( `https://meme-api-xtgxoarjuy.now.sh/api/tweets/${marker.cityName}`, function(result) {
+                $.get( `${domain}/api/tweets/${marker.cityName}`, function(result) {
                     var accordion = document.getElementById('accordion');
                     var images = accordion.getElementsByClassName('meme-image');
                     var tweets = accordion.getElementsByClassName('tweet');
