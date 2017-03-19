@@ -23,4 +23,11 @@ $(function() {
             $('#chat').css('display', 'none');
         }
     });
+
+    $("#input").keyup(function(event){
+    if(event.keyCode == 13){
+        var value = document.getElementById('input').value;
+        document.getElementById('input').value = "";
+    }
+});
 });

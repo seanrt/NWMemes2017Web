@@ -83,23 +83,13 @@ $(function() {
             });
         });
     });
-/*
-    setInterval(
-    function() {
-        $.get(`${domain}/api/poll`, function(result) {
-            console.log(result);
-            if(result.isReady) {
-                map.flyTo({
-                    center: result.location
-                });
-            }
-        });
-    }
-    , 2000);
-*/
+
+    map.addControl(new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken
+    }));
+
     // Add fullscreen button to the map.
-    map.addControl(new mapboxgl.FullscreenControl());
+    // map.addControl(new mapboxgl.FullscreenControl());
     // Add geolocate button to the map.
     map.addControl(new mapboxgl.GeolocateControl());
-
 });
