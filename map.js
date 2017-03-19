@@ -1,5 +1,5 @@
 $(function() {
-    var domain = 'https://meme-api-kvytfrztih.now.sh';
+    var domain = 'https://meme-api-krhvuazvmq.now.sh';
     mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keXR1bmciLCJhIjoiY2owZnJ6eXY4MDJlbTJxc2F6OW81cnpzcSJ9.CwCldAdWdHqo90qFuK_WFA';
 
     // initialize map object
